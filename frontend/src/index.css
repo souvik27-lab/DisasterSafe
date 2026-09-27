@@ -1,0 +1,346 @@
+@import "tailwindcss";
+
+:root {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  color-scheme: dark;
+  background: #020b14;
+  color: white;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #020b14;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* =====================================================
+   LEAFLET MAP FIX
+===================================================== */
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  background: #07131d !important;
+}
+
+.leaflet-container img.leaflet-tile {
+  max-width: none !important;
+  max-height: none !important;
+  width: 256px !important;
+  height: 256px !important;
+}
+
+.leaflet-tile {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.leaflet-tile-container {
+  visibility: visible !important;
+}
+
+.leaflet-layer {
+  position: absolute;
+}
+
+.leaflet-pane {
+  z-index: 400;
+}
+
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 1000;
+}
+
+.leaflet-control-zoom {
+  border: 0 !important;
+}
+
+.leaflet-control-zoom a {
+  background: rgba(6, 19, 29, 0.92) !important;
+  color: #94a3b8 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: rgba(34, 211, 238, 0.12) !important;
+  color: #67e8f9 !important;
+}
+
+/* =====================================================
+   DISASTERSAFE MAP ANIMATIONS
+===================================================== */
+
+.risk-pulse-ring {
+  animation: riskPulse 2.2s ease-out infinite;
+  transform-origin: center;
+}
+
+.risk-rotating-ring {
+  animation: riskRotate 8s linear infinite;
+  transform-origin: center;
+}
+
+.risk-core-pulse {
+  animation: corePulse 1.6s ease-in-out infinite;
+}
+
+@keyframes riskPulse {
+  0% {
+    opacity: 0.75;
+  }
+
+  50% {
+    opacity: 0.25;
+  }
+
+  100% {
+    opacity: 0.75;
+  }
+}
+
+@keyframes riskRotate {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+@keyframes corePulse {
+  0% {
+    filter: drop-shadow(0 0 2px rgba(239, 68, 68, 0.4));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 12px rgba(239, 68, 68, 0.95));
+  }
+
+  100% {
+    filter: drop-shadow(0 0 2px rgba(239, 68, 68, 0.4));
+  }
+}
+
+/* =====================================================
+   DISASTERSAFE MAP ANIMATIONS
+===================================================== */
+
+.risk-pulse-ring {
+  animation: riskPulse 2.2s ease-out infinite;
+}
+
+.risk-rotating-ring {
+  animation: riskRotate 8s linear infinite;
+}
+
+.risk-core-pulse {
+  animation: corePulse 1.6s ease-in-out infinite;
+}
+
+@keyframes riskPulse {
+  0% {
+    opacity: 0.75;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 0.75;
+  }
+}
+
+@keyframes riskRotate {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+@keyframes corePulse {
+  0% {
+    filter: drop-shadow(
+      0 0 2px rgba(239, 68, 68, 0.4)
+    );
+  }
+
+  50% {
+    filter: drop-shadow(
+      0 0 12px rgba(239, 68, 68, 0.95)
+    );
+  }
+
+  100% {
+    filter: drop-shadow(
+      0 0 2px rgba(239, 68, 68, 0.4)
+    );
+  }
+}
+
+/* =====================================================
+   ENVIRONMENTAL 3D EFFECTS
+===================================================== */
+
+.environment-3d-card {
+  transform-style: preserve-3d;
+  perspective: 1200px;
+}
+
+@keyframes environmentFloat {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* =========================================================
+   LEAFLET + TAILWIND COMPATIBILITY FIX
+========================================================= */
+
+.leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+  background: #07131d !important;
+  font-family: inherit !important;
+}
+
+/* IMPORTANT:
+   Tailwind's global img rules can break Leaflet tiles.
+*/
+.leaflet-container img,
+.leaflet-tile,
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+  max-width: none !important;
+  max-height: none !important;
+}
+
+/* Keep Leaflet tile dimensions controlled by Leaflet */
+.leaflet-tile {
+  width: 256px !important;
+  height: 256px !important;
+  display: block !important;
+}
+
+/* Tile layers */
+.leaflet-tile-container {
+  width: auto !important;
+  height: auto !important;
+}
+
+.leaflet-pane {
+  z-index: auto;
+}
+
+/* =========================================================
+   ZOOM CONTROL
+========================================================= */
+
+.leaflet-control-zoom {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+  border: 0 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35) !important;
+  margin-top: 14px !important;
+  margin-left: 14px !important;
+}
+
+.leaflet-control-zoom a {
+  width: 38px !important;
+  height: 38px !important;
+  line-height: 38px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  background: rgba(7, 19, 29, 0.94) !important;
+  color: #cbd5e1 !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+
+  font-size: 20px !important;
+  font-weight: 400 !important;
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.leaflet-control-zoom a:first-child {
+  border-radius: 10px 10px 0 0 !important;
+  border-bottom: 0 !important;
+}
+
+.leaflet-control-zoom a:last-child {
+  border-radius: 0 0 10px 10px !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: rgba(34, 211, 238, 0.12) !important;
+  color: #67e8f9 !important;
+  border-color: rgba(34, 211, 238, 0.3) !important;
+}
+
+/* Leaflet attribution */
+.leaflet-control-attribution {
+  background: rgba(7, 19, 29, 0.75) !important;
+  color: #64748b !important;
+  font-size: 10px !important;
+  backdrop-filter: blur(8px);
+}
+
+.leaflet-control-attribution a {
+  color: #94a3b8 !important;
+}
+
+/* Remove default ugly focus outline */
+.leaflet-control a:focus {
+  outline: none !important;
+}
