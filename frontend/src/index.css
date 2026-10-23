@@ -9,7 +9,6 @@
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
-
   color-scheme: dark;
   background: #020b14;
   color: white;
@@ -249,6 +248,7 @@ button {
 /* IMPORTANT:
    Tailwind's global img rules can break Leaflet tiles.
 */
+
 .leaflet-container img,
 .leaflet-tile,
 .leaflet-marker-icon,
@@ -258,6 +258,7 @@ button {
 }
 
 /* Keep Leaflet tile dimensions controlled by Leaflet */
+
 .leaflet-tile {
   width: 256px !important;
   height: 256px !important;
@@ -265,6 +266,7 @@ button {
 }
 
 /* Tile layers */
+
 .leaflet-tile-container {
   width: auto !important;
   height: auto !important;
@@ -292,21 +294,15 @@ button {
   width: 38px !important;
   height: 38px !important;
   line-height: 38px !important;
-
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-
   background: rgba(7, 19, 29, 0.94) !important;
   color: #cbd5e1 !important;
-
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
-
   font-size: 20px !important;
   font-weight: 400 !important;
-
   backdrop-filter: blur(12px);
-
   transition:
     background 0.2s ease,
     color 0.2s ease,
@@ -329,6 +325,7 @@ button {
 }
 
 /* Leaflet attribution */
+
 .leaflet-control-attribution {
   background: rgba(7, 19, 29, 0.75) !important;
   color: #64748b !important;
@@ -341,6 +338,14 @@ button {
 }
 
 /* Remove default ugly focus outline */
+
 .leaflet-control a:focus {
   outline: none !important;
+}
+
+/* Keep the fixed DisasterSafe navbar above Leaflet controls while scrolling. */
+
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 10 !important;
 }

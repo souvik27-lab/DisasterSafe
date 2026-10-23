@@ -284,22 +284,15 @@ function Chart({ data, active, setActive }) {
         />
 
         {/* ACTIVE VERTICAL GUIDE */}
-        <motion.line
-          animate={{
-            x1: getX(active),
-            x2: getX(active),
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 260,
-            damping: 25,
-          }}
-          y1={top}
-          y2={height - bottom}
-          stroke="rgba(148,163,184,0.18)"
-          strokeWidth="1"
-          strokeDasharray="4 5"
-        />
+        <line
+  x1={getX(active)}
+  x2={getX(active)}
+  y1={top}
+  y2={height - bottom}
+  stroke="rgba(148,163,184,0.18)"
+  strokeWidth="1"
+  strokeDasharray="4 5"
+/>
 
         {/* FLOOD LINE */}
         <motion.path
@@ -398,19 +391,14 @@ function Chart({ data, active, setActive }) {
               )}
 
               {/* Flood point */}
-              <motion.circle
-                animate={{
-                  r: isActive ? 5 : 3.5,
-                }}
-                transition={{
-                  duration: 0.2,
-                }}
-                cx={x}
-                cy={floodY}
-                fill="#07131d"
-                stroke="#32d8ef"
-                strokeWidth="2"
-              />
+              <circle
+  cx={x}
+  cy={floodY}
+  r={isActive ? 5 : 3.5}
+  fill="#07131d"
+  stroke="#32d8ef"
+  strokeWidth="2"
+/>
 
               {/* Landslide active ring */}
               {isActive && (
@@ -426,19 +414,14 @@ function Chart({ data, active, setActive }) {
               )}
 
               {/* Landslide point */}
-              <motion.circle
-                animate={{
-                  r: isActive ? 5 : 3.5,
-                }}
-                transition={{
-                  duration: 0.2,
-                }}
-                cx={x}
-                cy={landslideY}
-                fill="#07131d"
-                stroke="#fb923c"
-                strokeWidth="2"
-              />
+              <circle
+  cx={x}
+  cy={landslideY}
+  r={isActive ? 5 : 3.5}
+  fill="#07131d"
+  stroke="#fb923c"
+  strokeWidth="2"
+/>
 
               {/* DAY LABEL */}
               <text

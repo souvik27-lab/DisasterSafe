@@ -18,7 +18,7 @@ function DashboardIntelligence() {
   return (
     <section
       id="dashboard-intelligence"
-      className="relative mx-auto w-full max-w-[1600px] px-5 pb-8 sm:px-8 lg:px-10"
+      className="relative mx-auto w-full max-w-none px-0 pb-8"
     >
       {/* =====================================================
           SECTION INTRO
